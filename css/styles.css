@@ -1,23 +1,54 @@
 body {
   margin: 0;
   font-family: 'Comic Sans MS', cursive, sans-serif;
-  background-color: #e6f9f5; /* pastel mint green */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   flex-direction: column;
   overflow: hidden;
+
+  /* Gradient with pastel colors */
+  background: linear-gradient(135deg, #e6f9f5, #fff0f5, #fff8e7);
+  background-size: 600% 600%;
+  animation: gradientShift 15s ease infinite;
 }
 
+
+
 h1 {
-  color: #444;
+  background: linear-gradient(90deg, #ffb6c1, #ffd1dc, #e6f9f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
 }
+
 
 .cake {
   position: relative;
   width: 300px;
   height: 200px;
+}
+
+.layer {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.heart {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: #ffb6c1; /* pastel pink */
+  clip-path: polygon(50% 0%, 61% 12%, 75% 25%, 80% 37%, 75% 50%, 50% 75%, 25% 50%, 20% 37%, 25% 25%, 39% 12%);
+  animation: floatHearts 6s ease-in-out infinite;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(0);}
+  50% { transform: translateY(-50px) translateX(10px);}
+  100% { transform: translateY(0);}
 }
 
 .plate {
@@ -48,13 +79,50 @@ h1 {
   border-radius: 50%;
 }
 
+/* .mango {
+  width: 30px;
+  height: 45px;           /* taller than wide for oval shape */
+  /* background: orange;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; /* oval with pointed bottom */
+  /* top: 70px;
+  left: 60px;
+  transform: rotate(-20deg); /* optional tilt for natural look */
+  /* position: absolute;
+} */
+
 .mango {
   width: 30px;
-  height: 30px;
+  height: 45px;
   background: orange;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: absolute;
   top: 70px;
   left: 60px;
+  transform: rotate(-20deg);
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+  overflow: hidden;
 }
+
+/* Vertical slice lines */
+.slice-vert {
+  position: absolute;
+  top: 0;
+  width: 0.5px;
+  height: 100%;
+  background: rgba(175, 88, 2, 0.5);
+}
+
+/* Horizontal slice lines */
+.slice-horiz {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0.5px;
+  background: rgba(175, 88, 2, 0.5);
+}
+
+
+
 .cantaloupe {
   width: 35px;
   height: 35px;
@@ -143,3 +211,20 @@ h1 {
     transform: translateY(-110vh);
   }
 }
+
+.background-element {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ffd1dc; /* pastel pink */
+  opacity: 0.6;
+  animation: float 10s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0);}
+  50% { transform: translateY(-50px) translateX(30px);}
+  100% { transform: translateY(0) translateX(0);}
+}
+
