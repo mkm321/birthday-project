@@ -1,88 +1,145 @@
 body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #d5f5e3; /* pastel mint green */
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    overflow: hidden;
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #e6f9f5; /* pastel mint green */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+h1 {
+  color: #444;
+}
+
+.cake {
+  position: relative;
+  width: 300px;
+  height: 200px;
+}
+
+.plate {
+  position: absolute;
+  bottom: -25px;
+  width: 340px;
+  height: 25px;
+  background: #ccc;
+  border-radius: 50%;
+  left: -20px;
+}
+
+.layer {
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  background: #5c2e00; /* chocolate */
+  border-radius: 12px;
+}
+
+.layer-bottom { bottom: 0; }
+.layer-middle { bottom: 50px; }
+.layer-top { bottom: 100px; }
+
+/* Fruits */
+.fruit {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.mango {
+  width: 30px;
+  height: 30px;
+  background: orange;
+  top: 70px;
+  left: 60px;
+}
+.cantaloupe {
+  width: 35px;
+  height: 35px;
+  background: #ffcc99;
+  top: 90px;
+  left: 200px;
+}
+.grape {
+  width: 20px;
+  height: 20px;
+  background: purple;
+}
+.grape1 {
+  top: 120px;
+  left: 120px;
+}
+.grape2 {
+  top: 130px;
+  left: 160px;
+}
+
+/* Candles */
+.candle {
+  position: absolute;
+  width: 15px;
+  height: 40px;
+  background: #fff;
+  bottom: 150px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.flame {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 20px;
+  background: radial-gradient(circle, yellow 40%, orange 70%, transparent 100%);
+  border-radius: 50%;
+  animation: flicker 0.3s infinite;
+}
+
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+.hint {
+  margin-top: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  opacity: 0.9;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(720deg);
   }
-  
-  .cake-container {
-    text-align: center;
-    position: relative;
+}
+
+/* Balloons */
+.balloon {
+  position: fixed;
+  bottom: -150px;
+  width: 50px;
+  height: 70px;
+  background: pink;
+  border-radius: 50% 50% 50% 50%;
+  animation: floatUp 6s ease-in forwards;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh);
   }
-  
-  .cake {
-    width: 200px;
-    height: 120px;
-    background: #4e342e; /* chocolate base */
-    border-radius: 20px;
-    position: relative;
-    margin: 0 auto;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-  
-  .fruit {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    position: absolute;
-    top: -20px;
-  }
-  .mango { background: #ffb347; left: 20px; }
-  .cantaloupe { background: #ffd580; left: 70px; }
-  .grape { background: #7e57c2; right: 40px; }
-  
-  .candle {
-    width: 12px;
-    height: 40px;
-    background: #f8f8ff;
-    border-radius: 3px;
-    position: absolute;
-    top: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .flame {
-    width: 15px;
-    height: 25px;
-    background: radial-gradient(ellipse at center, #ffeb3b 0%, #ff9800 70%);
-    border-radius: 50%;
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: flicker 1s infinite alternate;
-    cursor: pointer;
-  }
-  
-  @keyframes flicker {
-    from { transform: translateX(-50%) scale(1); opacity: 1; }
-    to { transform: translateX(-50%) scale(1.1); opacity: 0.85; }
-  }
-  
-  .message {
-    margin-top: 20px;
-    font-size: 24px;
-    color: #2e7d32;
-    opacity: 0;
-    transition: opacity 1s ease;
-  }
-  
-  /* Confetti */
-  .confetti {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 0;
-    animation: fall 3s linear infinite;
-  }
-  
-  @keyframes fall {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-  }
-  
+}

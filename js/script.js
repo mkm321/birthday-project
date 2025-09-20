@@ -1,15 +1,23 @@
-const flame = document.getElementById("flame");
-const message = document.getElementById("message");
+let candlesOut = 0;
 
-flame.addEventListener("click", () => {
-  flame.style.display = "none"; // blow out flame
-  message.style.opacity = 1;    // show message
-  launchConfetti();
-  playBirthdayTune();
+document.querySelectorAll('.candle').forEach(candle => {
+  candle.addEventListener('click', () => {
+    const flame = candle.querySelector('.flame');
+    if (flame && flame.style.display !== 'none') {
+      flame.style.display = 'none';
+      candlesOut++;
+    }
+
+    // When all 3 candles are blown out
+    if (candlesOut === 3) {
+      launchConfetti();
+      launchBalloons();
+    }
+  });
 });
 
 function launchConfetti() {
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 50; i++) {
     const conf = document.createElement("div");
     conf.classList.add("confetti");
     conf.style.left = Math.random() * window.innerWidth + "px";
@@ -17,7 +25,7 @@ function launchConfetti() {
     conf.style.animationDuration = 2 + Math.random() * 3 + "s";
     document.body.appendChild(conf);
 
-    setTimeout(() => { conf.remove(); }, 5000);
+    setTimeout(() => conf.remove(), 5000);
   }
 }
 
@@ -26,7 +34,15 @@ function randomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
-function playBirthdayTune() {
-  const audio = new Audio("assets/audio/birthday-song.mp3");
-  audio.play();
+function launchBalloons() {
+  for (let i = 0; i < 10; i++) {
+    const balloon = document.createElement("div");
+    balloon.classList.add("balloon");
+    balloon.style.left = Math.random() * window.innerWidth + "px";
+    balloon.style.background = randomColor();
+    balloon.style.animationDuration = (4 + Math.random() * 3) + "s";
+    document.body.appendChild(balloon);
+
+    setTimeout(() => balloon.remove(), 7000);
+  }
 }
