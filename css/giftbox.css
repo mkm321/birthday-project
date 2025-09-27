@@ -13,6 +13,14 @@
   align-items: flex-end;
 }
 
+/* Mobile override */
+@media (max-width: 768px) {
+  .gift-box-container {
+    width: 30%;
+    height: 30%;
+  }
+}
+
 /* ---------------- Gift Box ---------------- */
 .gift-box {
   position: relative;
