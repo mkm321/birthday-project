@@ -1,0 +1,108 @@
+/* Gift Box Container */
+.gift-box-container {
+  perspective: 1000px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  z-index: 9999;
+  display: block; /* hidden initially */
+}
+
+/* Gift Box 3D */
+.gift-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+/* Box Body */
+.box-body {
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(135deg, #fdd835, #fbc02d);
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  border-top: 2px solid #e6b800;
+}
+
+/* Lid */
+.lid {
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(135deg, #ff5252, #ff1744);
+  border-radius: 10px 10px 0 0;
+  position: absolute;
+  top: 0;
+  transform-origin: bottom center;
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Bow */
+.bow {
+  position: relative;
+  width: 60px;
+  height: 20px;
+}
+.bow-left, .bow-right {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+}
+.bow-left { left: 0; transform: rotate(-45deg); }
+.bow-right { right: 0; transform: rotate(45deg); }
+
+/* Lid open animation */
+.lid.open {
+  animation: lidOpen 0.8s forwards;
+}
+
+@keyframes lidOpen {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(-120deg) translateY(-20px); opacity: 0; }
+}
+
+/* Sticky Notes */
+.sticky-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  z-index: 10000;
+  opacity: 0;
+}
+
+.sticky-note {
+  width: 120px;
+  height: 120px;
+  background: #fffb7d;
+  border-radius: 10px;
+  box-shadow: 2px 5px 10px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  transform: scale(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}

@@ -1,4 +1,6 @@
 // js/script.js
+import { showGiftBox } from './giftbox.js';
+
 window.addEventListener('load', () => {
   const intro = document.getElementById("intro-screen");
 
@@ -7,7 +9,7 @@ window.addEventListener('load', () => {
     intro.style.opacity = 0;
     setTimeout(() => intro.style.display = "none", 1500); // wait for fade
   }, 3500);
-  
+
   const cake = document.querySelector('.cake');
   const creamTop = document.querySelector('.cream-top') || document.querySelector('.layer-top');
 
@@ -89,6 +91,8 @@ window.addEventListener('load', () => {
       document.body.appendChild(balloon);
       setTimeout(() => balloon.remove(), 7000);
     }
+    // Show gift box after balloons finish
+    setTimeout(showGiftBox, 4000);
   }
 
   function randomColor() {
