@@ -1,6 +1,7 @@
 /* Fullscreen intro overlay */
 #intro-screen {
   position: fixed;
+  font-family: 'Cinzel', serif; /* consistent everywhere */
   top: 0;
   left: 0;
   width: 100%;
