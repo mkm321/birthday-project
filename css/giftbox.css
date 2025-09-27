@@ -1,22 +1,23 @@
-/* Gift Box Container */
+/* ---------------- Gift Box Container ---------------- */
 .gift-box-container {
-  perspective: 1000px;
+  perspective: 1200px;
   position: fixed;
-  top: 50%;
+  bottom: 30%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: 300px;
+  transform: translateX(-50%);
+  width: 25%;
+  height: 30%;
   z-index: 9999;
-  display: block; /* hidden initially */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-/* Gift Box 3D */
+/* ---------------- Gift Box ---------------- */
 .gift-box {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
   cursor: pointer;
 }
 
@@ -24,48 +25,60 @@
 .box-body {
   width: 100%;
   height: 70%;
-  background: linear-gradient(135deg, #fdd835, #fbc02d);
+  background: linear-gradient(145deg, #ffe0ec, #ffb6c1);
   border-radius: 10px;
   position: absolute;
   bottom: 0;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  border-top: 2px solid #e6b800;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border: 4px solid #ffc0cb;
+  overflow: hidden;
+}
+
+/* Ribbon (vertical + horizontal) */
+.box-body::before,
+.box-body::after {
+  content: "";
+  position: absolute;
+  background: #fff8b7;
+  border-radius: 6px;
+}
+
+.box-body::before {
+  top: 0;
+  left: 50%;
+  width: 30px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+.box-body::after {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  transform: translateY(-50%);
 }
 
 /* Lid */
 .lid {
-  width: 100%;
-  height: 40%;
-  background: linear-gradient(135deg, #ff5252, #ff1744);
-  border-radius: 10px 10px 0 0;
+  width: 108%;
+  height: 35%;
+  background: linear-gradient(145deg, #a1cfff, #81d4fa);
+  border-radius: 12px 12px 6px 6px;
   position: absolute;
-  top: 0;
+  top: -25px;
+  left: -4%;
   transform-origin: bottom center;
-  z-index: 2;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 3;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.8s ease;
+  border: 4px solid #81d4fa;
 }
 
-/* Bow */
-.bow {
-  position: relative;
-  width: 60px;
-  height: 20px;
-}
-.bow-left, .bow-right {
-  width: 20px;
-  height: 20px;
-  background: #fff;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-}
-.bow-left { left: 0; transform: rotate(-45deg); }
-.bow-right { right: 0; transform: rotate(45deg); }
-
-/* Lid open animation */
+/* Lid Open Animation */
 .lid.open {
   animation: lidOpen 0.8s forwards;
 }
@@ -75,7 +88,63 @@
   100% { transform: rotateX(-120deg) translateY(-20px); opacity: 0; }
 }
 
-/* Sticky Notes */
+/* ---------------- Bow ---------------- */
+.bow {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 60px;
+  z-index: 4;
+}
+
+.bow-left,
+.bow-right {
+  width: 45px;
+  height: 45px;
+  background: radial-gradient(circle at 30% 30%, #fff9cc, #ffe680);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  box-shadow: inset -4px -4px 6px rgba(255, 255, 255, 0.7),
+              inset 4px 4px 6px rgba(0,0,0,0.1);
+}
+
+.bow-left { left: 0; transform: rotate(-20deg); }
+.bow-right { right: 0; transform: rotate(20deg); }
+
+.bow::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #fff9cc, #ffe680);
+  border-radius: 50%;
+  box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.7),
+              inset 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+
+/* Bow bounce on lid open */
+.lid.open + .bow-left {
+  animation: bowBounce 0.5s forwards;
+}
+
+.lid.open + .bow-right {
+  animation: bowBounce 0.5s forwards 0.1s;
+}
+
+@keyframes bowBounce {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ---------------- Sticky Notes Container ---------------- */
 .sticky-container {
   position: fixed;
   top: 50%;
@@ -85,16 +154,16 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  z-index: 10000;
+  z-index: 1000;
   opacity: 0;
 }
 
+/* Sticky Notes Buttons (Pastel Variants) */
 .sticky-note {
   width: 120px;
   height: 120px;
-  background: #fffb7d;
-  border-radius: 10px;
-  box-shadow: 2px 5px 10px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  box-shadow: 2px 5px 15px rgba(0,0,0,0.2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,6 +172,13 @@
   font-family: 'Comic Sans MS', cursive, sans-serif;
   font-size: 14px;
   font-weight: bold;
-  transform: scale(0);
+  transform: scale(0); /* start hidden */
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
+
+/* Assign different pastel colors to sticky notes */
+.sticky-note:nth-child(1) { background: #ffd9e8; } /* light pink */
+.sticky-note:nth-child(2) { background: #d5fdd5; } /* mint green */
+.sticky-note:nth-child(3) { background: #e0d5ff; } /* pastel purple */
+.sticky-note:nth-child(4) { background: #fff7c2; } /* soft yellow */
+.sticky-note:nth-child(5) { background: #ffd8b0; } /* pastel oran*
