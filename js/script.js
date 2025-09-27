@@ -3,11 +3,27 @@ import { showGiftBox } from './giftbox.js';
 
 window.addEventListener('load', () => {
   const intro = document.getElementById("intro-screen");
+  const birthdayAudio = document.getElementById("birthday-audio");
+
+  function playBirthdayTune() {
+    if (birthdayAudio) {
+      birthdayAudio.volume = 0.5; // not too loud
+      birthdayAudio.play().catch(err => {
+        console.log("Autoplay blocked, waiting for user gesture:", err);
+        // fallback: play on first tap/click
+        document.body.addEventListener("click", () => {
+          birthdayAudio.play();
+        }, { once: true });
+      });
+    }
+  }
 
   // Hide intro after 3.5 seconds
   setTimeout(() => {
     intro.style.opacity = 0;
-    setTimeout(() => intro.style.display = "none", 1500); // wait for fade
+    setTimeout(() => intro.style.display = "none", playBirthdayTune(), 1500); // wait for fade
+    // Try playing music
+    
   }, 3500);
 
   const cake = document.querySelector('.cake');
@@ -81,6 +97,13 @@ window.addEventListener('load', () => {
     }
   }
 
+  function pauseBirthdayAudio() {
+    if (birthdayAudio) {
+      birthdayAudio.pause();
+      birthdayAudio.currentTime = 0;
+    }
+  }
+
   function launchBalloons() {
     for (let i = 0; i < 10; i++) {
       const balloon = document.createElement('div');
@@ -91,8 +114,13 @@ window.addEventListener('load', () => {
       document.body.appendChild(balloon);
       setTimeout(() => balloon.remove(), 7000);
     }
+
+    setTimeout(() => pauseBirthdayAudio(), 3500);
+    
     // Show gift box after balloons finish
     setTimeout(showGiftBox, 4000);
+    
+    
   }
 
   function randomColor() {
