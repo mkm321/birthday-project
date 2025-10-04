@@ -54,6 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href = "timeline.html";
         });
       }
+      else if (noteText.includes("Open Love Letter")) {
+        sticky.addEventListener("click", () => {
+          window.location.href = "loveletter.html";
+        });
+      }
 
       // TODO: add similar handlers for other notes if needed
 
