@@ -1,37 +1,29 @@
 // giftbox.js
-export async function showGiftBox() {
-  // Hide the homepage elements
-  const homepage = document.getElementById('homepage');
-  if (homepage) homepage.style.display = 'none';
 
-  // Fetch giftbox HTML
-  const res = await fetch('./giftbox.html'); // adjust path if needed
-  if (!res.ok) {
-    console.error("Failed to load giftbox.html");
+document.addEventListener("DOMContentLoaded", () => {
+  const giftBox = document.querySelector('.gift-box');
+  const lid = document.querySelector('.lid');
+
+  // Check if we came back with #notes in URL
+  if (window.location.hash === "#notes") {
+    // Skip the giftbox, show notes directly
+    if (giftBox) giftBox.remove();
+    showStickyNotes();
     return;
   }
 
-  const html = await res.text();
+  if (giftBox && lid) {
+    giftBox.addEventListener('click', () => {
+      // Animate lid opening
+      lid.classList.add('open');
 
-  // Create container for gift box
-  const container = document.createElement('div');
-  container.id = 'giftbox-wrapper';
-  container.innerHTML = html;
-  document.body.appendChild(container);
-
-  const giftBox = container.querySelector('.gift-box');
-  const lid = giftBox.querySelector('.lid');
-
-  giftBox.addEventListener('click', () => {
-    // Animate lid opening
-    lid.classList.add('open');
-
-    // After lid animation, remove box and show sticky notes
-    setTimeout(() => {
-      container.remove(); // remove the gift box entirely
-      showStickyNotes(); // show sticky notes
-    }, 800); // match lidOpen animation duration
-  });
+      // After lid animation, remove box and show sticky notes
+      setTimeout(() => {
+        giftBox.remove(); // remove the gift box entirely
+        showStickyNotes(); // show sticky notes
+      }, 800); // match lidOpen animation duration
+    });
+  }
 
   function showStickyNotes() {
     const stickyContainer = document.createElement('div');
@@ -51,10 +43,19 @@ export async function showGiftBox() {
       sticky.classList.add('sticky-note');
       sticky.textContent = noteText;
 
-      // random rotation for fun
+      // Random rotation for fun
       const rotate = Math.floor(Math.random() * 31) - 15;
       sticky.style.transform = `rotate(${rotate}deg) scale(0)`;
       sticky.style.opacity = 0;
+
+      // 🔑 Click handlers
+      if (noteText.includes("View Gallery")) {
+        sticky.addEventListener("click", () => {
+          window.location.href = "timeline.html";
+        });
+      }
+
+      // TODO: add similar handlers for other notes if needed
 
       stickyContainer.appendChild(sticky);
 
@@ -67,4 +68,4 @@ export async function showGiftBox() {
 
     stickyContainer.style.opacity = 1;
   }
-}
+});

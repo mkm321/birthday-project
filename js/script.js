@@ -1,6 +1,3 @@
-// js/script.js
-import { showGiftBox } from './giftbox.js';
-
 window.addEventListener('load', () => {
   const intro = document.getElementById("intro-screen");
   const birthdayAudio = document.getElementById("birthday-audio");
@@ -80,6 +77,9 @@ window.addEventListener('load', () => {
         if (candlesOut === candles.length) {
           launchConfetti();
           launchBalloons();
+          setTimeout(() => {
+            window.location.href = "giftbox.html";
+          }, 8000);
         }
       }
     });
@@ -115,12 +115,7 @@ window.addEventListener('load', () => {
       setTimeout(() => balloon.remove(), 7000);
     }
 
-    setTimeout(() => pauseBirthdayAudio(), 3500);
-    
-    // Show gift box after balloons finish
-    setTimeout(showGiftBox, 4000);
-    
-    
+    setTimeout(() => pauseBirthdayAudio(), 7000);
   }
 
   function randomColor() {

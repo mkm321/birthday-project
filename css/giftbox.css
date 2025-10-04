@@ -1,3 +1,18 @@
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+
+  /* Gradient with pastel colors */
+  background: linear-gradient(135deg, #555879, #98A1BC, #DED3C4);
+  background-size: 600% 600%;
+  animation: gradientShift 3s ease infinite;
+}
 /* ---------------- Gift Box Container ---------------- */
 .gift-box-container {
   perspective: 1200px;
@@ -189,8 +204,8 @@
 }
 
 /* Assign different pastel colors to sticky notes */
-.sticky-note:nth-child(1) { background: #ffd9e8; } /* light pink */
+.sticky-note:nth-child(1) { background: #fff7c2; } /* light pink */ 
 .sticky-note:nth-child(2) { background: #d5fdd5; } /* mint green */
 .sticky-note:nth-child(3) { background: #e0d5ff; } /* pastel purple */
-.sticky-note:nth-child(4) { background: #fff7c2; } /* soft yellow */
-.sticky-note:nth-child(5) { background: #ffd8b0; } /* pastel oran*
+.sticky-note:nth-child(4) { background: #ffd9e8;} /* soft yellow */
+.sticky-note:nth-child(5) { background: #ffd8b0;} /* pastel oran*
