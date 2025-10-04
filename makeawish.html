@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make a Wish</title>
+  <link rel="stylesheet" href="css/makeawish.css">
+</head>
+<body>
+  <div class="wish-container">
+    <h1>✨ Make a Wish ✨</h1>
+    <p>Write down your secret wish below... 💭</p>
+
+    <form id="wishForm" action="https://formspree.io/f/xkgqzwko" method="POST">
+      <textarea name="wish" placeholder="Type your wish here..." required></textarea>
+      <button type="submit" class="send-btn">Send Wish 🌠</button>
+    </form>
+
+    <button id="backToSurprise" class="back-btn" onclick="location.href='giftbox.html#notes'">Back to Surprises</button>
+  </div>
+
+  <script src="js/makeawish.js"></script>
+</body>
+</html>

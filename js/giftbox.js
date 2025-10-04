@@ -59,6 +59,16 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href = "loveletter.html";
         });
       }
+      else if (noteText.includes("Messages from Me")) {
+        sticky.addEventListener("click", () => {
+          window.location.href = "messages.html";
+        });
+      }
+      else if (noteText.includes("Make a Wish")) {
+        sticky.addEventListener("click", () => {
+          window.location.href = "makeawish.html";
+        });
+      }
 
       // TODO: add similar handlers for other notes if needed
 

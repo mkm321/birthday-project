@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff7f0;
+  font-family: 'Comic Neue', cursive, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+.card-stack {
+  position: relative;
+  width: 380px;  /* bigger */
+  height: 240px; /* bigger */
+  margin: 0 auto 25px;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffd8b0;
+  color: #4b2e19;
+  border-radius: 20px;
+  box-shadow: 6px 8px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25em;
+  padding: 25px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+  border: 3px solid #ffb974; /* subtle border for design */
+  background-image: radial-gradient(#ffe9d2 1.5px, transparent 1.5px);
+  background-size: 18px 18px; /* subtle dotted texture */
+}
+
+/* Top card */
+.card.active {
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+  z-index: 3;
+}
+
+/* Second card */
+.card.behind {
+  transform: scale(0.96) translateX(25px) translateY(-15px);
+  opacity: 0.85;
+  z-index: 2;
+}
+
+/* Third card */
+.card.further {
+  transform: scale(0.92) translateX(50px) translateY(-30px);
+  opacity: 0.65;
+  z-index: 1;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 113px;
+  gap: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 10; /* ensures buttons are always above cards */
+}
+
+.flip-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1em;
+  cursor: pointer;
+  background: #ffb974;
+  color: white;
+  transition: background 0.3s;
+}
+
+.flip-btn:hover {
+  background: #ff9a42;
+}
+
+.back-surprise-btn {
+  margin-top: 10px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.05em;
+  cursor: pointer;
+  background: #eaa264; /* darker orange */
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.back-surprise-btn:hover {
+  background: #c87f3f;
+}
