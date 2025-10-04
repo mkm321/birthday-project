@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #fffdea; /* very soft yellow background */
+  font-family: 'Comic Neue', cursive, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.container {
+  background: #fff7c2; /* soft yellow card */
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 6px 8px 16px rgba(0, 0, 0, 0.25);
+  max-width: 400px;
+}
+
+h1 {
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  color: #4b3f1f;
+}
+
+.player {
+  margin-bottom: 25px;
+}
+
+#playPauseBtn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1em;
+  cursor: pointer;
+  background: #f6e56e; /* brighter yellow */
+  color: #4b3f1f;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.3s;
+}
+
+#playPauseBtn:hover {
+  background: #f2d52a;
+  transform: scale(1.05);
+}
+
+.back-btn {
+  margin-top: 15px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.05em;
+  cursor: pointer;
+  background: #e0c142; /* darker yellow */
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background: #c9a71e;
+}

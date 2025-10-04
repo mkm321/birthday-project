@@ -69,6 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href = "makeawish.html";
         });
       }
+      else if (noteText.includes("Play Birthday Song")) {
+        sticky.addEventListener("click", () => {
+          window.location.href = "birthday-song.html";
+        });
+      }
 
       // TODO: add similar handlers for other notes if needed
 
