@@ -28,5 +28,5 @@ backBtn.addEventListener("click", () => {
     audio.pause();
     audio.currentTime = 0;
   }
-  window.location.href='giftbox.html#notes';
+  window.location.href='hongbao.html#notes';
 });

@@ -1,10 +1,11 @@
 const messages = [
-  "You’re the peanut butter to my jelly 🥪💖",
+  "You’re the calm to my chaos, baobao 🌙❤️",
   "Life’s better when I get to annoy you 😏",
-  "You deserve a crown for dealing with me 👑😂",
-  "I donut know what I’d do without you 🍩💕",
+  "You deserve an award for loving this clingy bear 🐻🏆😂",
+  "You’ve officially become my favorite notification 🔔💕",
   "Warning: I’ll steal your fries every time 🍟😜",
-  "You’re basically my favorite person (don’t tell anyone) 🤫✨"
+  "No matter what happens, I’ll always choose you — again and again 💞",
+  "You’re not just my girlfriend… you’re my peace, my home 🏡💗"
 ];
 
 let currentIndex = 0;

@@ -78,7 +78,7 @@ window.addEventListener('load', () => {
           launchConfetti();
           launchBalloons();
           setTimeout(() => {
-            window.location.href = "giftbox.html";
+            window.location.href = "hongbao.html";
           }, 8000);
         }
       }
