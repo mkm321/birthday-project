@@ -62,7 +62,8 @@ function showStickyNotes() {
     "Make a Wish 🌠",
     "Open Love Letter 💌",
     "View Gallery 📸",
-    "Messages from Me 📝"
+    "Messages from Me 📝",
+    "Puzzle Game 🧩"
   ];
 
   notes.forEach((noteText, i) => {
@@ -99,6 +100,11 @@ function showStickyNotes() {
     else if (noteText.includes("Play Birthday Song")) {
       sticky.addEventListener("click", () => {
         window.location.href = "birthday-song.html";
+      });
+    }
+    else if (noteText.includes("Puzzle Game")) {
+      sticky.addEventListener("click", () => {
+        window.location.href = "puzzle.html";
       });
     }
 

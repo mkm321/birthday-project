@@ -134,4 +134,5 @@ body {
 .sticky-note:nth-child(2) { background: #d5fdd5; } /* mint green */
 .sticky-note:nth-child(3) { background: #e0d5ff; } /* pastel purple */
 .sticky-note:nth-child(4) { background: #ffd9e8;} /* soft yellow */
-.sticky-note:nth-child(5) { background: #ffd8b0;} /* pastel oran*
+.sticky-note:nth-child(5) { background: #ffd8b0;} /* pastel oran*/
+.sticky-note:nth-child(6) { background: #c2f0ff;} 
