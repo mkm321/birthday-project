@@ -1,6 +1,6 @@
 const gridSize = 5;
 const pieceSize = 80;
-const imageSrc = 'images/puzzle1.jpg'; // your image
+const imageSrc = 'images/puzzle.jpg'; // your image
 
 const puzzleContainer = document.querySelector('.puzzle-container');
 const piecesContainer = document.querySelector('.pieces-container');
